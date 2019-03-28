@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --time=05:30:00   # walltime
+#SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
+#SBATCH --nodes=1   # number of nodes
+#SBATCH --mem-per-cpu=1024M   # memory per CPU core
+#SBATCH -J "cylinder"   # job name
+#SBATCH --gid=fslg_dronesim
+module unload matlab
+module load matlab/r2017b
+matlab -r "main(${1},${2})"
